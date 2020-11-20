@@ -3,21 +3,21 @@ const { gql } = require('apollo-server-express');
 
 module.exports = gql`
     type Query {
-        getTasks:[Task]
+        getComments:[Comment]
     }
 
     type Mutation {
-        addTask(task: InputTask!):Task
-        updateTask(id: ID!, task: InputTask!):Task
-        deleteTask(id: ID!):Task
+        addComment(comment: InputComment!):Comment
+        updateComment(id: ID!, comment: InputComment!):Comment
+        deleteComment(id: ID!):Comment
     }
 
-    type Task {
+    type Comment {
         _id: ID!
         content: String!
     }
 
-    input InputTask {
+    input InputComment {
         content: String!
     }
 `;
