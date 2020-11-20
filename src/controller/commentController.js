@@ -4,8 +4,8 @@ const { ApolloError } = require("apollo-server-express")
 
 const getComments = async (args, context) => {
     try {
-        const comment = await Comment.find({});
-        return comment;
+        const comments = await Comment.find({}).populate('owner').exec();
+        return comments;
     } catch (error) {
         throw new ApolloError("Error con la base de datos al listar los comentarios");
     }
@@ -14,6 +14,7 @@ const getComments = async (args, context) => {
 const addComment = async ({ comment }, context, [token, {user}]) => {
     try {
         const newComment = new Comment(comment);
+        newComment.owner = user._id
         const commentSaved = await newComment.save()
         return commentSaved
     } catch (error) {
