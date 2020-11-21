@@ -4,11 +4,11 @@ const passport = require("passport")
 const opts = {}
 const User = require("../model/User")
 
+// set options
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = process.env.JWT_SECRET;
-// opts.issuer = 'localhost';
-// opts.audience = 'localhost';
 
+// return a user if exist in our database from username field of acces_token
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
     User.findOne({username: jwt_payload.username}, function(err, user) {
         if (err) {

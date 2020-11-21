@@ -1,6 +1,7 @@
 const Comment = require("../model/Comment")
 const { ApolloError, ForbiddenError} = require("apollo-server-express")
 
+// all methods for logic comment
 
 const getComments = async (args, context) => {
     try {

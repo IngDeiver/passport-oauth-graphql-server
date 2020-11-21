@@ -1,6 +1,6 @@
 const { gql } = require('apollo-server-express');
 
-
+// define the API schema 
 module.exports = gql`
     type Query {
         getComments:[Comment]

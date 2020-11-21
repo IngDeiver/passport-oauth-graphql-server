@@ -2,6 +2,7 @@ const FacebookTokenStrategy = require('passport-facebook-token');
 const passport = require("passport")
 const User = require("../model/User")
 
+// return a user authenticated with facebook
 passport.use(new FacebookTokenStrategy({
     clientID: process.env.FACEBOOK_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,

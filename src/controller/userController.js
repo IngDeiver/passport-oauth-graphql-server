@@ -2,10 +2,13 @@ const { ApolloError, AuthenticationError } = require("apollo-server-express");
 const User = require("../model/User")
 const jwtUtil = require("../util/jwtUtil")
 
+// all methods for logic User
 const login = async ({username, password}, context) => {
     try {
         const {user} = await context.authenticate("graphql-local", {username, password})
         if(!user) throw new AuthenticationError("Invalid credentials")
+        
+        // return token for acces api and username
         return {
             acces_token: jwtUtil.encode(user),
             username: user.username
@@ -20,6 +23,8 @@ const login = async ({username, password}, context) => {
 const register = async ({user}) => {
     try {
         const newUser = await new User(user).save()
+
+        // return token for acces api and username
         return {
             acces_token: jwtUtil.encode(user),
             username: newUser.username

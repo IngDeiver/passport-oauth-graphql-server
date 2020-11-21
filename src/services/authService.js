@@ -1,6 +1,7 @@
 const { AuthenticationError} = require("apollo-server-express")
 const {JsonWebTokenError} = require("jsonwebtoken")
 
+// check  type provider from provider header
 const checkAuthorizationAndProviderHeader = (req) => {
     return new Promise((resolve, reject) => {
         const token = req.headers.authorization || req.headers.access_token || ''
@@ -10,6 +11,7 @@ const checkAuthorizationAndProviderHeader = (req) => {
     })
 }
 
+// apply auth facebook middleware
 const facebookAuthProvider =  (context) => {
    return new Promise(async (resolve, reject) => {
         try {
@@ -22,6 +24,7 @@ const facebookAuthProvider =  (context) => {
    })
 }
 
+// apply auth Google middleware
 const googleAuthProvider =  (context) => {
     return new Promise(async (resolve, reject) => {
          try {
@@ -35,7 +38,7 @@ const googleAuthProvider =  (context) => {
  }
 
 
- 
+ // apply jwt  middleware for get jwt token from header and get local user
 const ownerAuth =  (context) => {
     return new Promise(async (resolve, reject) => {
          try {
@@ -48,6 +51,7 @@ const ownerAuth =  (context) => {
     })
  }
  
+// detected provider and apply your respective middleware auth (facebook, google or owner)
 const applyProviderAuth = (context) => {
     const provider = context.req.headers.provider
     if(provider === "facebook") return facebookAuthProvider(context);

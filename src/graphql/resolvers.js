@@ -10,6 +10,8 @@ const {checkAuthorizationAndProviderHeader,
 
 const handleError = require("../util/handleErrors")
 
+
+
 module.exports =  {
     Query : {
         getComments:(parent, args, context) => getComments(args, context),
@@ -18,6 +20,9 @@ module.exports =  {
     },
 
     Mutation : {
+        /*if exist once a error in checkAuthorizationAndProviderHeader or applyProviderAuth 
+        the .catch make a "throw" error to client */
+
         addComment:(parent, args, context) => Promise.all([checkAuthorizationAndProviderHeader(context.req), applyProviderAuth(context)])
         .then(values => addComment(args, context, values)).catch(err => handleError(err)),
         

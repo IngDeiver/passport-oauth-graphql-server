@@ -2,6 +2,7 @@ const GoogleTokenStrategy = require('passport-google-token').Strategy;
 const passport = require("passport")
 const User = require("../model/User")
 
+// return a user authenticated with Google
 passport.use(new GoogleTokenStrategy({
     clientID: process.env.GOOGLE_ID,
     clientSecret: process.env.GOOGLE_APP_SECRET,
