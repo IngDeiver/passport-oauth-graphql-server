@@ -3,14 +3,18 @@ const { getComments,
         updateComment,
         deleteComment} = require("../controller/commentController")
 
+const {login, register} = require("../controller/userController")
+
 const {checkAuthorizationAndProviderHeader,
-        applyProviderAuth} =  require("../util/auth")
+        applyProviderAuth} =  require("../services/authService")
 
 const handleError = require("../util/handleErrors")
 
 module.exports =  {
     Query : {
-        getComments:(parent, args, context) => getComments(args, context)
+        getComments:(parent, args, context) => getComments(args, context),
+        login:(parent, args, context) => login(args, context),
+        register:(parent, args, context) => register(args)
     },
 
     Mutation : {

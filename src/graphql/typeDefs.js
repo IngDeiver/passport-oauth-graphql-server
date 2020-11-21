@@ -4,6 +4,8 @@ const { gql } = require('apollo-server-express');
 module.exports = gql`
     type Query {
         getComments:[Comment]
+        login(username: String!, password: String!):UserPayload
+        register(user: InputUser!):UserPayload
     }
 
     type Mutation {
@@ -23,6 +25,11 @@ module.exports = gql`
 
     }
 
+    type UserPayload {
+        acces_token: String!
+        username: String!
+    }
+
     type Comment {
         _id: ID!
         content: String!
@@ -31,5 +38,10 @@ module.exports = gql`
 
     input InputComment {
         content: String!
+    }
+
+    input InputUser {
+        username: String!
+        password: String!
     }
 `;

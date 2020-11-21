@@ -21,6 +21,8 @@ app.use(passport.initialize());
 //passport
 require("./src/passport/facebookStrategy")
 require("./src/passport/googleStrategy")
+require("./src/passport/localStrategy")
+require("./src/passport/jwtStrategy")
 
 
 // graphql server

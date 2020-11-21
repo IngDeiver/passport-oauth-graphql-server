@@ -11,7 +11,7 @@ const getComments = async (args, context) => {
     }
 }
 
-const addComment = async ({ comment }, context, [token, {user}]) => {
+const addComment = async ({ comment }, context, [token, user]) => {
     try {
         //create comment and owner
         const newComment = new Comment(comment);
@@ -25,7 +25,7 @@ const addComment = async ({ comment }, context, [token, {user}]) => {
 
 }
 
-const updateComment = async ({ id, comment }, context, [token, {user}]) => {
+const updateComment = async ({ id, comment }, context, [token, user]) => {
     try {
         // find comment
         let commentUpdate = await Comment.findOne({ _id: id }).exec();
@@ -44,7 +44,7 @@ const updateComment = async ({ id, comment }, context, [token, {user}]) => {
     }
 }
 
-const deleteComment = async ({ id }, context, [token, {user}]) => {
+const deleteComment = async ({ id }, context, [token, user]) => {
     try {
         // find comment
         let comment = await Comment.findOne({ _id: id }).exec()
