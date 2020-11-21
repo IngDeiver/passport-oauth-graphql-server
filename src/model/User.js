@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
     password:String,
     email:String,
     facebookId:String,
-    gooleId:String,
+    googleId:String,
     comments:[{
         type: Schema.Types.ObjectId,
         ref:"Comment"

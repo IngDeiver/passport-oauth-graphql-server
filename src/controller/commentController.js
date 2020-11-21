@@ -27,7 +27,6 @@ const addComment = async ({ comment }, context, [token, {user}]) => {
 
 const updateComment = async ({ id, comment }, context, [token, {user}]) => {
     try {
-        
         // find comment
         let commentUpdate = await Comment.findOne({ _id: id }).exec();
         

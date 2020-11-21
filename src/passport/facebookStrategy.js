@@ -8,15 +8,17 @@ passport.use(new FacebookTokenStrategy({
     fbGraphVersion: 'v3.0'
   }, async function(accessToken, refreshToken, profile, done) {
 
+     // find user
     var user = await User.findOne({facebookId:profile.id});
 
+    // create if not exist user
     if(!user){
       try {
           user = new User({username:profile.displayName, 
           email:profile.emails[0].value, 
           facebookId:profile.id})
           await user.save()
-          console.log("Usuario creado con facebook");
+          console.log("User created with facebook");
           
       } catch (error) {
         return done(error, user);

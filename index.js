@@ -20,6 +20,7 @@ app.use(passport.initialize());
 
 //passport
 require("./src/passport/facebookStrategy")
+require("./src/passport/googleStrategy")
 
 
 // graphql server
