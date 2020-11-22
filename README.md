@@ -7,6 +7,7 @@ So far we have our own stateless authentication using access tokens and authenti
 All this led me to find a way to implement these three types of stateless user authentication in a GraphQl API in which we can ensure only the queries or mutations that we only want, the integration of all these technologies and their understanding was for me a true headache and this was the result.
 
 You can try a [demo] (url) host on Heroku, where you can interact with the implemented GraphQL API.
+
 ![Documentation API](https://firebasestorage.googleapis.com/v0/b/files-service.appspot.com/o/images%2FDoc.JPG?alt=media&token=40af0879-2135-4fff-85ba-5cf7ed3d5e8a)
 
 ### Characteristics
@@ -35,8 +36,10 @@ You can try a [demo] (url) host on Heroku, where you can interact with the imple
 
 
 An example using Facebook:
+
 ![Example with facebook](https://firebasestorage.googleapis.com/v0/b/files-service.appspot.com/o/images%2FComment.JPG?alt=media&token=f30b94dc-0f30-43a9-b2a8-34181d0b883c )
 When you authenticate using the username and password you will get a response with the following structure in case of success, if the call fails the server will respond with the respective error.
+
 ![Token](https://firebasestorage.googleapis.com/v0/b/files-service.appspot.com/o/images%2Fregister.JPG?alt=media&token=4c5d419f-b0ef-4555-b8b9-c031d0d818ce)
           
 
