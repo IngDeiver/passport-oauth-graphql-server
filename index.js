@@ -4,7 +4,6 @@ const app = express()
 const { ApolloServer } = require('apollo-server-express');
 const { buildContext } = require("graphql-passport");
 const passport = require("passport")
-const {AuthenticationError} = require("apollo-server-express")
 
 // http server config
 const PORT = 4000
@@ -31,6 +30,8 @@ const resolvers  = require("./src/graphql/resolvers")
 const graphqlServer = new ApolloServer({
     typeDefs,
     resolvers,
+    introspection: true,
+    playground: true,
     context: async ({ req }) => buildContext({ req })
   });
 graphqlServer.applyMiddleware({ app });
