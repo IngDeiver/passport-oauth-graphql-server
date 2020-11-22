@@ -24,9 +24,12 @@ You can try a [demo](https://graphql-oauth-server.herokuapp.com/graphql) host on
 
 
 ### How to use ?
-> Note: For user and password authentication, you must first log in by calling the `login (username: String !, password: String!)` Function of GraphQL with which you will obtain an access token for registered users.
+> Note: For user and password authentication (owner provider), you must first log in by calling the `login (username: String !, password: String!)` Function of GraphQL with which you will obtain an access token for registered users.
+
 > It is assumed that you have an access token from Google and Facebook to test this API with these providers.
+
 > Each provider must write in the headers as indicated as they are case sensitive.
+
 > To execute any mutation you must send the headers for the corresponding provider as listed below.
 
 
