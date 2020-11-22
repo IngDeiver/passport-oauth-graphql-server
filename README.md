@@ -6,7 +6,7 @@ It is also likely that in addition to wanting to implement authentication with t
 So far we have our own stateless authentication using access tokens and authentication with providers using the OAuth2 standard, but I wanted to implement this in a GraphQL API, but this protocol does not define a standard that allows us to secure the API, complicating things.
 All this led me to find a way to implement these three types of stateless user authentication in a GraphQl API in which we can ensure only the queries or mutations that we only want, the integration of all these technologies and their understanding was for me a true headache and this was the result.
 
-You can try a [demo] (url) host on Heroku, where you can interact with the implemented GraphQL API.
+You can try a [demo](https://graphql-oauth-server.herokuapp.com/graphql) host on Heroku, where you can interact with the implemented GraphQL API.
 
 ![Documentation API](https://firebasestorage.googleapis.com/v0/b/files-service.appspot.com/o/images%2FDoc.JPG?alt=media&token=40af0879-2135-4fff-85ba-5cf7ed3d5e8a)
 
