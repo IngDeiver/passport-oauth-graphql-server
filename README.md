@@ -2,8 +2,10 @@
 Graphql server with apollo server and stateless authentication with google, facebook and username / password via passport.
 ### Why develop it?
 Authentication is almost always a module that we need to implement in our applications, to this is added the [OAuth 2.0 standard](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2) for user authentication with providers such as Google, Facebook among others, authentication that we can implement in a more standard way thanks to the great library [passport.js](http://www.passportjs.org), but that is not everything.
+
 It is also likely that in addition to wanting to implement authentication with these providers, we need to authenticate the users of our application, as what we want is stateless authentication we make use of [JWT](https://jwt.io/), another great library which helps us standardize one type of token, the JWT.
 So far we have our own stateless authentication using access tokens and authentication with providers using the OAuth2 standard, but I wanted to implement this in a GraphQL API, but this protocol does not define a standard that allows us to secure the API, complicating things.
+
 All this led me to find a way to implement these three types of stateless user authentication in a GraphQl API in which we can ensure only the queries or mutations that we only want, the integration of all these technologies and their understanding was for me a true headache and this was the result.
 
 You can try a [demo](https://graphql-oauth-server.herokuapp.com/graphql) host on Heroku, where you can interact with the implemented GraphQL API.
