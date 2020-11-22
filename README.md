@@ -36,7 +36,7 @@ You can try a [demo](https://graphql-oauth-server.herokuapp.com/graphql) host on
 | Provider      | Header to token                            |Header to provider     |
 | ------------- |:------------------------------------------:| ---------------------:|
 | facebook      | Athorization: Bearer facebook_acces_token  | provider: facebook    |              
-| google        | Athorization: google_token                 | provider: google      |
+| google        | access_token: google_token                 | provider: google      |
 | owner         | Athorization: Bearer jwt_token             | provider: owner       |       
 
 
