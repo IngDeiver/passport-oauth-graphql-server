@@ -11,7 +11,8 @@ const login = async ({username, password}, context) => {
         // return token for acces api and username
         return {
             acces_token: jwtUtil.encode(user),
-            username: user.username
+            username: user.username,
+            avatar: user.avatar
         }
 
     } catch (error) {
@@ -22,12 +23,14 @@ const login = async ({username, password}, context) => {
 
 const register = async ({user}) => {
     try {
+        user['avatar'] = null
         const newUser = await new User(user).save()
 
         // return token for acces api and username
         return {
             acces_token: jwtUtil.encode(user),
-            username: newUser.username
+            username: newUser.username,
+            avatar: user.avatar
         }  
     } catch (error){
         throw new ApolloError(`${error.message}`);

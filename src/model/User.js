@@ -6,6 +6,7 @@ const UserSchema = new mongoose.Schema({
     username: { type: String, unique: true },
     password: String,
     email: String,
+    avatar: String,
     facebookId: String,
     googleId: String,
     comments: [{
@@ -21,7 +22,7 @@ UserSchema.pre('save', function (next) {
 });
 
 // veryfi if password is correct with hash generated
-UserSchema.method.verifyPassword = function (password) {
+UserSchema.methods.verifyPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
 }
 

@@ -16,7 +16,8 @@ passport.use(new FacebookTokenStrategy({
     if(!user){
       try {
           user = new User({username:profile.displayName, 
-          email:profile.emails[0].value, 
+          email:profile.emails[0].value,
+          avatar: profile.photos[0].value, 
           facebookId:profile.id})
           await user.save()
           console.log("User created with facebook");

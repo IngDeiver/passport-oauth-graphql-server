@@ -19,6 +19,7 @@ module.exports = gql`
         username: String!
         password: String
         email: String!
+        avatar: String
         facebookId: String
         gooleId: String,
         comments:[Comment]
@@ -28,6 +29,7 @@ module.exports = gql`
     type UserPayload {
         acces_token: String!
         username: String!
+        avatar: String!
     }
 
     type Comment {
