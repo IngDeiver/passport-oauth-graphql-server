@@ -7,7 +7,6 @@ passport.use(new GoogleTokenStrategy({
     clientID: process.env.GOOGLE_ID,
     clientSecret: process.env.GOOGLE_APP_SECRET,
   }, async function(accessToken, refreshToken, profile, done) {
-
     // find user
     var user = await User.findOne({googleId:profile.id});
 
@@ -16,7 +15,7 @@ passport.use(new GoogleTokenStrategy({
       try {
           user = new User({username:profile.displayName, 
           email:profile.emails[0].value, 
-          avatar: profile.photos[0].value || "",
+          avatar:profile._json.picture,
           googleId:profile.id})
 
           await user.save()
