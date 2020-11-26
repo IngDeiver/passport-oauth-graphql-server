@@ -19,7 +19,7 @@ const addComment = async ({ comment }, context, [token, user]) => {
         newComment.owner = user._id
         // save comment
         const commentSaved = await newComment.save()
-        return commentSaved
+        return await commentSaved.populate("owner").execPopulate()
     } catch (error) {
         throw new ApolloError(`${error.message}`);
     }

@@ -8,7 +8,7 @@ passport.use(new FacebookTokenStrategy({
     clientSecret: process.env.FACEBOOK_APP_SECRET,
     fbGraphVersion: 'v3.0'
   }, async function(accessToken, refreshToken, profile, done) {
-
+    console.log(profile._json);
      // find user
     var user = await User.findOne({facebookId:profile.id});
 
