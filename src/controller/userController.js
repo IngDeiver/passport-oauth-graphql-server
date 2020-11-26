@@ -23,7 +23,7 @@ const login = async ({username, password}, context) => {
 
 const register = async ({user}) => {
     try {
-        user['avatar'] = null
+        user['avatar'] = ""
         const newUser = await new User(user).save()
 
         // return token for acces api and username
