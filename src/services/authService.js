@@ -6,6 +6,8 @@ const checkAuthorizationAndProviderHeader = (req) => {
     return new Promise((resolve, reject) => {
         const token = req.headers.authorization || req.headers.access_token || ''
         const provider = req.headers.provider || ''
+        console.log(token);
+        console.log(provider);
         if(!token || !provider)  return reject(new AuthenticationError("You need acces token and provider"));
         return resolve({token, provider})
     })

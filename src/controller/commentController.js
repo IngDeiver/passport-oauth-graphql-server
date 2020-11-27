@@ -29,14 +29,12 @@ const addComment = async ({ comment }, context, [token, user]) => {
 const updateComment = async ({ id, comment }, context, [token, user]) => {
     try {
         // find comment
-        let commentUpdate = await Comment.findOne({ _id: id }).exec();
+        let commentUpdate = await Comment.findOneAndUpdate({_id: id }, {content: comment.content}, {new:true})
+        .populate("owner").exec()
         
         if (!commentUpdate) throw new ApolloError("Comment not found");
         if(!user._id.equals(commentUpdate.owner._id)) throw new ForbiddenError("You don't have permission")
-        
-        // update and save comment
-        commentUpdate.content = comment.content
-        await commentUpdate.save()
+
         return commentUpdate;
 
     } catch (error) {

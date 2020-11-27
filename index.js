@@ -34,7 +34,7 @@ const graphqlServer = new ApolloServer({
     playground: true,
     context: async ({ req }) => buildContext({ req })
   });
-graphqlServer.applyMiddleware({ app });
+graphqlServer.applyMiddleware({ app, cors: {credentials: true, origin: true}});
 
 // http server
 app.listen({ port: app.get("port") }, () =>
